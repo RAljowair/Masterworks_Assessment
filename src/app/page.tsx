@@ -18,7 +18,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { AiOutlineLoading } from "react-icons/ai";
 import { redirect } from "next/navigation";
-import { useRouter } from 'next/navigation'
+import { useRouter } from "next/navigation";
 
 const formSchema = z.object({
   username: z
@@ -38,11 +38,10 @@ const formSchema = z.object({
 });
 
 export default function Home() {
+  const router = useRouter();
   const { toast } = useToast();
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const [isReceived, setReceived] = React.useState<boolean>(false);
-  
-  
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -59,8 +58,7 @@ export default function Home() {
       title: "Submited, " + values.username,
       description: "Enter correct informations",
     });
-    redirect("/dashboard");
-    
+    router.push("/dashboard");
   }
   return (
     <main className="flex flex-col h-screen items-center justify-center p-10">
@@ -87,7 +85,7 @@ export default function Home() {
                     />
                   </FormControl>
                   <FormDescription>
-                    {"● Make sure it's correct to contact you back."}
+                    {"Make sure it's correct to contact you back."}
                   </FormDescription>
                   <FormMessage />
                 </FormItem>
