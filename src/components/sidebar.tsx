@@ -124,7 +124,7 @@ export default function Sidebar() {
           navItem={{
             icon: <LuLogOut className={iconsStyle} />,
             name: "Log out",
-            href: "",
+            href: "/#",
           }}
           selected={selectedNav}
         />
