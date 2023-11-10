@@ -7,7 +7,9 @@ export default function Dashbaord({ children }: { children: React.ReactNode }) {
     <section className="dashboard-page flex flex-row-2">
       <Sidebar />
       {/* main page content section */}
-      <main className="dashboard-content w-full h-screen">{children}</main>
+      <main className="dashboard-content w-full h-screen bg-[#FDFEFF]  p-8">
+        {children}
+      </main>
     </section>
   );
 }

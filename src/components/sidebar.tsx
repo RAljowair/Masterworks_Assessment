@@ -7,11 +7,11 @@ import selectedPageSVG from "@/../public/SelectedPage.svg";
 import {
   LuSettings,
   LuMail,
-  LuActivity,
   LuHistory,
   LuFolder,
   LuLayout,
   LuLogOut,
+  LuUsers,
 } from "react-icons/lu";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -32,13 +32,29 @@ const navItems: NavItem[] = [
   },
   {
     name: "Users",
-    href: "/users",
-    icon: <LuActivity className={iconsStyle} />,
+    href: "/dashboard/users",
+    icon: <LuUsers className={iconsStyle} />,
   },
-  { name: "Documents", href: "", icon: <LuFolder className={iconsStyle} /> },
-  { name: "Inbox", href: "", icon: <LuMail className={iconsStyle} /> },
-  { name: "History", href: "", icon: <LuHistory className={iconsStyle} /> },
-  { name: "Settings", href: "", icon: <LuSettings className={iconsStyle} /> },
+  {
+    name: "Documents",
+    href: "/dashboard/documents",
+    icon: <LuFolder className={iconsStyle} />,
+  },
+  {
+    name: "Inbox",
+    href: "/dashboard/inbox",
+    icon: <LuMail className={iconsStyle} />,
+  },
+  {
+    name: "History",
+    href: "/dashboard/history",
+    icon: <LuHistory className={iconsStyle} />,
+  },
+  {
+    name: "Settings",
+    href: "/dashboard/settings",
+    icon: <LuSettings className={iconsStyle} />,
+  },
 ];
 
 function SidebarNavItem({
@@ -50,7 +66,7 @@ function SidebarNavItem({
 }) {
   return (
     <div>
-      <Link href={`#${navItem.href}`} className="flex flex-row gap-10 group">
+      <Link href={`${navItem.href}`} className="flex flex-row gap-10 group">
         <motion.div>
           <Image
             src={selectedPageSVG}
@@ -78,13 +94,13 @@ export default function Sidebar() {
         id="logo"
         className="flex flex-row justify-center items-center gap-4 text-white">
         <Image height={45} src={companyLogo} alt={"Company L logo"} />
-        <p>Lingua</p>
+        <p className="text-xl font-semibold">Lingua</p>
       </div>
 
       {/* side navigation items section*/}
       <div
         id="sidebar-items"
-        className="flex flex-col w-full justify-center gap-10">
+        className="flex flex-col w-full text-[#98A2B1] justify-center gap-10">
         {navItems.map((navItem: NavItem, index, array) => (
           <div
             onClick={() => {
