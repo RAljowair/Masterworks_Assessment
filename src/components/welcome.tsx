@@ -4,9 +4,8 @@ import peopleImg from "@/../public/people_reading.jpg";
 
 export default function Welcome({ username }: { username: String }) {
   const importantTextStyle = "text-[#FF991F] font-semibold";
-  const TextStyle = "text-[#FF991F]";
   return (
-    <section className="flex flex-row justify-between h-[17rem] items-center bg-white shadow-mainComponent rounded-3xl px-8 py-5">
+    <div className="flex flex-row overflow-hidden justify-between max-h-[17.5rem] min-h-[15.5rem] items-center bg-white shadow-mainComponent rounded-3xl px-8 py-5">
       <div className="flex flex-col gap-8">
         <p className="text-4xl">
           Welcome back,{" "}
@@ -25,6 +24,6 @@ export default function Welcome({ username }: { username: String }) {
         </div>
       </div>
       <Image src={peopleImg} alt="" className="w-[42%]" />
-    </section>
+    </div>
   );
 }

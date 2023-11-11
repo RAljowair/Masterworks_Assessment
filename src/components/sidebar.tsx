@@ -75,7 +75,7 @@ function SidebarNavItem({
           />
         </motion.div>
         <div
-          className={`default-navitem flex flex-row items-center transition delay-[30] gap-4 bg- font-medium text-md hover:cursor-pointer bg-transparent group-hover:drop-shadow-xl text-${
+          className={`default-navitem flex flex-row items-center transition delay-[30ms] gap-4 bg- font-medium text-md hover:cursor-pointer bg-transparent group-hover:drop-shadow-xl text-${
             selected == navItem.name ? "white" : "[#98A2B1]"
           } group-hover:text-white`}>
           {navItem.icon}
@@ -101,8 +101,9 @@ export default function Sidebar() {
       <div
         id="sidebar-items"
         className="flex flex-col w-full text-[#98A2B1] justify-center gap-10">
-        {navItems.map((navItem: NavItem, index, array) => (
+        {navItems.map((navItem: NavItem, index) => (
           <div
+            key={index}
             onClick={() => {
               setSelectedNav(navItem.name);
               console.log(selectedNav);
