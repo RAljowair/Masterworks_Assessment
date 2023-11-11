@@ -12,30 +12,24 @@ import { motion } from "framer-motion";
 
 const doneDraw = {
   hidden: { pathLength: 0, opacity: 0 },
-  visible: (i: number) => {
-    const delay = 1 + i * 0.5;
-    return {
-      pathLength: 0.5,
-      opacity: 1,
-      transition: {
-        pathLength: { delay, type: "spring", duration: 1.5, bounce: 0 },
-        opacity: { delay, duration: 0.01 },
-      },
-    };
+  visible: {
+    pathLength: 0.5,
+    opacity: 0.9,
+    transition: {
+      pathLength: { delay: 0.5, type: "spring", duration: 1.5, bounce: 0 },
+      opacity: { delay: 0.5, duration: 0.01 },
+    },
   },
 };
 const progressDraw = {
   hidden: { pathLength: 0, opacity: 0 },
-  visible: (i: number) => {
-    const delay = 1 + i * 0.5;
-    return {
-      pathLength: 0.7,
-      opacity: 1,
-      transition: {
-        pathLength: { delay, type: "spring", duration: 1.5, bounce: 0 },
-        opacity: { delay, duration: 0.01 },
-      },
-    };
+  visible: {
+    pathLength: 0.7,
+    opacity: 1,
+    transition: {
+      pathLength: { delay: 0.7, type: "spring", duration: 2, bounce: 0 },
+      opacity: { delay: 0.7, duration: 0.01 },
+    },
   },
 };
 
@@ -57,14 +51,17 @@ export default function workingHours() {
           </Select>
         </div>
       </div>
-      <div className="absolute self-center top-1/2 translate-y-[-20%] font-semibold text-2xl">
-        34%
-      </div>
-      <motion.svg
-        className={"-rotate-90"}
-        viewBox="0 0 600 600"
-        initial="hidden"
-        animate="visible">
+
+      <motion.svg viewBox="0 0 600 600" initial="hidden" animate="visible">
+        <text
+          fill="#000000"
+          className="text-[7rem] font-semibold"
+          x="50%"
+          y="50%"
+          dominantBaseline="middle"
+          textAnchor="middle">
+          84%
+        </text>
         {/*circle progress bar background*/}
         <motion.circle
           className={"h-full w-full justify-center stroke-[3rem]"}
@@ -81,7 +78,9 @@ export default function workingHours() {
         />
         {/*circle progress bar for in progress tasks*/}
         <motion.circle
-          className={"h-full w-full justify-center stroke-[3rem]"}
+          className={
+            "h-full w-full justify-self-center stroke-[3rem] translate-y-full -rotate-90"
+          }
           style={{
             strokeLinecap: "round",
             fill: "transparent",
@@ -95,7 +94,9 @@ export default function workingHours() {
         />
         {/*circle progress bar for done tasks*/}
         <motion.circle
-          className={"h-full w-full justify-center stroke-[3rem]"}
+          className={
+            "h-full w-full justify-center stroke-[3rem] translate-y-full -rotate-90"
+          }
           style={{
             strokeLinecap: "round",
             fill: "transparent",
