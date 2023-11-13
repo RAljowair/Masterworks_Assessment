@@ -66,7 +66,9 @@ function SidebarNavItem({
 }) {
   return (
     <div>
-      <Link href={`${navItem.href}`} className="flex flex-row gap-10 group">
+      <Link
+        href={`${navItem.href}`}
+        className="flex flex-row gap-10 w-[80%] group">
         <motion.div>
           <Image
             src={selectedPageSVG}
@@ -75,7 +77,7 @@ function SidebarNavItem({
           />
         </motion.div>
         <div
-          className={`default-navitem flex flex-row items-center transition delay-[30ms] gap-4 bg- font-medium text-md hover:cursor-pointer bg-transparent group-hover:drop-shadow-xl text-${
+          className={`default-navitem flex flex-row items-center transition duration-75 gap-4 bg- font-medium text-md hover:cursor-pointer bg-transparent group-hover:drop-shadow-xl text-${
             selected == navItem.name ? "white" : "[#98A2B1]"
           } group-hover:text-white`}>
           {navItem.icon}
@@ -88,7 +90,7 @@ function SidebarNavItem({
 export default function Sidebar() {
   const [selectedNav, setSelectedNav] = React.useState<String>("");
   return (
-    <section className="dashboard-sidebar flex flex-col w-[15%] bg-[#172B4D] py-8 justify-between items-center h-screen">
+    <section className="dashboard-sidebar flex flex-col h-screen w-full bg-[#172B4D] py-8 justify-between items-center">
       {/* logo section*/}
       <div
         id="logo"
@@ -100,7 +102,7 @@ export default function Sidebar() {
       {/* side navigation items section*/}
       <div
         id="sidebar-items"
-        className="flex flex-col w-full text-[#98A2B1] justify-center gap-10">
+        className="flex flex-col w-full justify-center text-[#98A2B1] gap-5">
         {navItems.map((navItem: NavItem, index) => (
           <div
             key={index}

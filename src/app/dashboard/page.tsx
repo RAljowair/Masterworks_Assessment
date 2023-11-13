@@ -1,26 +1,29 @@
+import MediaLessons from "@/components/media-lessons";
+import MyStudents from "@/components/my-students";
+import RightSide from "@/components/right-side";
 import Welcome from "@/components/welcome";
 import WorkingHours from "@/components/workingHours";
 import React from "react";
 
 function DashboardContent() {
   return (
-    <section className="flex flex-row gap-5">
-      <div className="grid grid-row-3 grid-col-2 gap-5">
+    <section>
+      <div className="grid grid-cols-3 grid-rows-3 gap-4 h-screen p-8">
         <div className="col-span-2">
           <Welcome username={"Rayan"} />
         </div>
-        <div>
+        <div className="col-start-1 row-start-2">
+          <MyStudents />
+        </div>
+        <div className="col-start-2 row-start-2">
           <WorkingHours />
         </div>
-        <div>
-          <WorkingHours />
+        <div className="col-span-2 col-start-1 row-start-3">
+          <MediaLessons />
         </div>
-        <div className="col-span-2">
-          <Welcome username={"Rayan"} />
+        <div className="row-span-3 col-start-3 row-start-1">
+          <RightSide/>
         </div>
-      </div>
-      <div className="flex flex-col w-full gap-8">
-        <Welcome username={"Right"} />
       </div>
     </section>
   );
